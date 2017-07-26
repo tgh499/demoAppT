@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    table {
+        width: 100%;
+        height: 50%;
+    }
+    
+    thead,
+    tbody,
+    tr,
+    td,
+    th {
+        display: block;
+    }
+    
+    tr:after {
+        content: ' ';
+        display: block;
+        visibility: hidden;
+        clear: both;
+    }
+    
+    thead th {
+        height: 80px;
+        /*text-align: left;*/
+    }
+    
+    tbody {
+        height: 800px;
+        overflow-y: auto;
+        overflow-x: auto;
+    }
+    
+    thead {
+        /* fallback */
+    }
+    
+    tbody td,
+    thead th {
+        width: 16.66%;
+        float: left;
+    }
+</style>
+
+
+<head>
+    <title>Datasets</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+<body>
+    <% include templates/header.ejs %>
+        <div class="container" style="height:800px !important">
+            <div class="row">
+                <div class="col-sm-3">
+                    <script type="text/javascript">
+                        google.charts.load('current', {
+                            'packages': ['corechart']
+                        });
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                                ["Sample Type", "Number of Samples"],
+                                ["Mutations (WES or WGS)", 982],
+                                ["mRNA (Seq)", 1218],
+                                ["mRNA (Array)", 597],
+                                ["CNV", 1080],
+                                ["miRNA", 1165],
+                                ["Methy", 1233]
+                            ]);
+
+                            var options = {
+                                title: 'TCGA BRCA',
+                                'width': 300,
+                                'height': 300
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+                    <div id="piechart1" style="width: 400px; height: 350px;"></div>
+
+                </div>
+                <div class="col-sm-3">
+                    <script type="text/javascript">
+                        google.charts.load('current', {
+                            'packages': ['corechart']
+                        });
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                                ["Sample Type", "Number of Samples"],
+                                ["Mutations (WES or WGS)", 2369],
+                                ["mRNA (Array)", 1980],
+                                ["CNV", 2173]
+                            ]);
+
+                            var options = {
+                                title: 'Metabric',
+                                'width': 300,
+                                'height': 300
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+                    <div id="piechart2" style="width: 400px; height: 350px;"></div>
+                </div>
+                <div class="col-sm-3">
+                    <script type="text/javascript">
+                        google.charts.load('current', {
+                            'packages': ['corechart']
+                        });
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                                ["Sample Type", "Number of Samples"],
+                                ["Mutations (WES or WGS)", 2185],
+                                ["CNV", 1695]
+                            ]);
+
+                            var options = {
+                                title: 'AACR GENIE',
+                                'width': 300,
+                                'height': 300
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+                    <div id="piechart3" style="width: 400px; height: 350px;"></div>
+                </div>
+                <div class="col-sm-3">
+                    <script type="text/javascript">
+                        google.charts.load('current', {
+                            'packages': ['corechart']
+                        });
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                                ["Sample Type", "Number of Samples"],
+                                ["Mutations (WES or WGS)", 560],
+                                ["mRNA (Seq)", 313],
+                                ["CNV", 344],
+                                ["miRNA", 383]
+                            ]);
+
+                            var options = {
+                                title: 'EU/UK Cohort',
+                                'width': 300,
+                                'height': 300
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+                    <div id="piechart4" style="width: 400px; height: 350px;"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p><a href="/tcga">TCGA</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p> <a href="/metabric">Metabric</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p><a href="/AACR_GEINE ">AACR_GEINE</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p><a href="/EU_UK ">EU_UK Cohort</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <h4 class=" text-center" style="color:darkblue">Summary of Dataset: Number of Samples</h4>
+            </div>
+
+            <div class="container ">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th style="width:12.5%; height:40px !important"></th>
+                            <th style="width:12.5%; height:40px !important"></th>
+                            <th style="width:75%; height:40px!important">Total Num. of samples </th>
+                        </tr>
+                        <tr>
+                            <th style="width:12.5% !important">Patients DataSets</th>
+                            <th style="width:12.5% !important">Total Num. of patients</th>
+                            <th style="width:12.5% !important">Mutations (WES/WGS)</th>
+                            <th style="width:12.5% !important">mRNA (Seq)</th>
+                            <th style="width:12.5% !important">mRNA (Array) </th>
+                            <th style="width:12.5% !important">CNV</th>
+                            <th style="width:12.5% !important">miRNA</th>
+                            <th style="width:12.5% !important">Methy</th>
+                        </tr>
+                    </thead>
+                    <tbody style="height:180px !important">
+                        <tr>
+                            <td style="width:12.5% !important">TCGA BRCA1</td>
+                            <td style="width:12.5% !important">1105</td>
+                            <td style="width:12.5% !important"> 982</td>
+                            <td style="width:12.5% !important">1218</td>
+                            <td style="width:12.5% !important">597</td>
+                            <td style="width:12.5% !important">1080</td>
+                            <td style="width:12.5% !important">1165</td>
+                            <td style="width:12.5% !important">1233</td>
+                        </tr>
+                        <tr>
+                            <td style="width:12.5% !important">Metabric2</td>
+                            <td style="width:12.5% !important">2509</td>
+                            <td style="width:12.5% !important">2369</td>
+                            <td style="width:12.5% !important"></td>
+                            <td style="width:12.5% !important">1980</td>
+                            <td style="width:12.5% !important">2173</td>
+                            <td style="width:12.5% !important"></td>
+                            <td style="width:12.5% !important"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:12.5% !important">AACR GENIE3</td>
+                            <td style="width:12.5% !important">2131</td>
+                            <td style="width:12.5% !important">2185</td>
+                            <td style="width:12.5% !important"></td>
+                            <td style="width:12.5% !important"></td>
+                            <td style="width:12.5% !important">1695</td>
+                            <td style="width:12.5% !important"></td>
+                            <td style="width:12.5% !important"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:12.5% !important">EU/UK Cohort4</td>
+                            <td style="width:12.5% !important">560</td>
+                            <td style="width:12.5% !important">560</td>
+                            <td style="width:12.5% !important">313</td>
+                            <td style="width:12.5% !important"></td>
+                            <td style="width:12.5% !important">344</td>
+                            <td style="width:12.5% !important">383</td>
+                            <td style="width:12.5% !important"></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="container">
+                <h4 class=" text-center" style="color:darkblue">Summary of Dataset: Overview</h4>
+            </div>
+
+            <div class="container ">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Abbreviation</th>
+                            <th>Code</th>
+                            <th>TCGA</th>
+                            <th>Metabric</th>
+                            <th>AACR_GEINE</th>
+                            <th>EU_UK Cohort</th>
+                        </tr>
+                    </thead>
+                    <tbody style="height:530px !important">
+                        <tr>
+                            <td>age</td>
+                            <td>Mean±sd</td>
+                            <td>58±13</td>
+                            <td>61±13</td>
+                            <td></td>
+                            <td>55±14</td>
+                        </tr>
+                        <tr>
+                            <td>Race</td>
+                            <td>White</td>
+                            <td>757</td>
+                            <td>1980</td>
+                            <td>1641</td>
+                            <td>560</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Black</td>
+                            <td>183</td>
+                            <td></td>
+                            <td>143</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Asian</td>
+                            <td>61</td>
+                            <td></td>
+                            <td>100</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Subtypes</td>
+                            <td>Normal</td>
+                            <td>8</td>
+                            <td> 199</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Basal</td>
+                            <td> 98</td>
+                            <td> 329</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Lumina A</td>
+                            <td> 231</td>
+                            <td> 718</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Lumina B</td>
+                            <td> 127</td>
+                            <td> 488</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Her2</td>
+                            <td> 58</td>
+                            <td> 240</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Survival status</td>
+                            <td> Death/Alive</td>
+                            <td>152/944</td>
+                            <td>1143/837</td>
+                            <td></td>
+                            <td>63/377</td>
+                        </tr>
+                        <tr>
+                            <td>Disease free status </td>
+                            <td>Progression/Complete remission</td>
+                            <td>104/897</td>
+                            <td> 647/1333</td>
+                            <td></td>
+                            <td>70/284</td>
+                        </tr>
+                        <tr>
+                            <td>Stage</td>
+                            <td>I/II/III/IV</td>
+                            <td>133/446/175/15</td>
+                            <td> 371/571/90/4</td>
+                            <td> 100/153/34/10</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sample type</td>
+                            <td> Primary/ Metastasis</td>
+                            <td> 1105/7</td>
+                            <td></td>
+                            <td> 1081/1090</td>
+                            <td></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="container">
+                <h4 class=" text-center" style="color:darkblue">GEO data summary</h4>
+                <p class="text-center">Datasets and their corresponding number of samples</p>
+            </div>
+
+
+            <div class="container">
+                <div class="col-sm-3 col-centered">
+                    <script type="text/javascript">
+                        google.charts.load('current', {
+                            'packages': ['corechart']
+                        });
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                                ["Dataset ID", "Samples"],
+                                ["GSE3494", 251],
+                                ["GSE7904", 62],
+                                ["GSE2109", 354],
+                                ["GSE7390", 198],
+                                ["ETABM158", 125],
+                                ["GSE2034", 286],
+                                ["GSE2990", 189],
+                                ["GSE1456", 159],
+                                ["GSE22513", 28],
+                                ["GSE28821", 89],
+                                ["GSE28796", 24],
+                                ["GSE11121", 200],
+                                ["GSE2603", 121],
+                                ["MDA133", 133],
+                                ["GSE5364", 196],
+                                ["GSE1561", 49],
+                                ["GSE5327", 58],
+                                ["GSE5847", 95],
+                                ["GSE12276", 204],
+                                ["GSE16446", 120],
+                                ["GSE18864", 84],
+                                ["GSE19615", 115],
+                                ["GSE20194", 278],
+                                ["GSE_18229", 372],
+                                ["UCSC Public hub", 683],
+                                ["UCSC Public hub", 295],
+                                ["GSE7545", 51],
+                                ["UCSC Public hub", 117]
+                            ]);
+
+                            var options = {
+                                title: '',
+                                'width': 900,
+                                'height': 600
+                            };
+
+                            var chart = new google.visualization.ColumnChart(document.getElementById('geo'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+                    <div id="geo" style="width: 80%; height: 50%;"></div>
+
+                </div>
+            </div>
+            <div class="container ">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th style="width:14.28% !important">Dataset ID</th>
+                            <th style="width:14.28% !important">Number of Samples</th>
+                            <th style="width:14.28% !important">Platform</th>
+                            <th style="width:14.28% !important">Normalization</th>
+                            <th style="width:14.28% !important">Survival</th>
+                            <th style="width:14.28% !important">dataSubtype</th>
+                            <th style="width:14.28% !important">dataAuthor_year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width:14.28% !important">GSE3494</td>
+                            <td style="width:14.28% !important">251</td>
+                            <td style="width:14.28% !important">GPL96,97: Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Miller_2005</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE7904</td>
+                            <td style="width:14.28% !important">62</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Richardson_2006</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE2109</td>
+                            <td style="width:14.28% !important">354</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Intgen</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE7390</td>
+                            <td style="width:14.28% !important">198</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Desmedt_2007, Patil_2015</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">ETABM158</td>
+                            <td style="width:14.28% !important">125</td>
+                            <td style="width:14.28% !important">A-AFFY-76: Affymetrix</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Chin_2006</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE2034</td>
+                            <td style="width:14.28% !important">286</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Wang_2005</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE2990</td>
+                            <td style="width:14.28% !important">189</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Sotiriou_2006</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE1456</td>
+                            <td style="width:14.28% !important">159</td>
+                            <td style="width:14.28% !important">GPL96,97: Affymetrix</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Pawitan_2005</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE22513</td>
+                            <td style="width:14.28% !important">28</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Bauer_201,Lehmann_2011,Adams_2010</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE28821</td>
+                            <td style="width:14.28% !important">89</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Lehmann_2011</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE28796</td>
+                            <td style="width:14.28% !important">24</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Lehmann_2011</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE11121</td>
+                            <td style="width:14.28% !important">200</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Schmidt_2008</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE2603</td>
+                            <td style="width:14.28% !important">121</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Minn_2005</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">MDA133</td>
+                            <td style="width:14.28% !important">133</td>
+                            <td style="width:14.28% !important">Affymetrix</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Hess_2006</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE5364</td>
+                            <td style="width:14.28% !important">196</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Yu_2008</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE1561</td>
+                            <td style="width:14.28% !important">49</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Farmer_2005</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE5327</td>
+                            <td style="width:14.28% !important">58</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Minn_2007</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE5847</td>
+                            <td style="width:14.28% !important">95</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Boersma_2008</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE12276</td>
+                            <td style="width:14.28% !important">204</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Bos_2009</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE16446</td>
+                            <td style="width:14.28% !important">120</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Li_2010, Desmedt_2011</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE18864</td>
+                            <td style="width:14.28% !important">84</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Silver_2010</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE19615</td>
+                            <td style="width:14.28% !important">115</td>
+                            <td style="width:14.28% !important">GPL570:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Li_2010</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE20194</td>
+                            <td style="width:14.28% !important">278</td>
+                            <td style="width:14.28% !important">GPL96:Affymetrix</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Popovici_2010</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE_18229</td>
+                            <td style="width:14.28% !important">372</td>
+                            <td style="width:14.28%; height:100px !important">GPL885, GPL887, GPL1390, GPL1708, GPL5325, GPL6607, GPL7504: Agilent</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Prat_2010</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">UCSC Public hub</td>
+                            <td style="width:14.28% !important">683</td>
+                            <td style="width:14.28% !important">Affymetrix</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">Yau_2010</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">UCSC Public hub</td>
+                            <td style="width:14.28% !important">295</td>
+                            <td style="width:14.28% !important">Agilent</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">1</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Vijver_2002</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">GSE7545</td>
+                            <td style="width:14.28% !important">51</td>
+                            <td style="width:14.28% !important">Affymetrix SNP array</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">Haverty_2008</td>
+                        </tr>
+                        <tr>
+                            <td style="width:14.28% !important">UCSC Public hub</td>
+                            <td style="width:14.28% !important">117</td>
+                            <td style="width:14.28% !important">Agilent</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">0</td>
+                            <td style="width:14.28% !important">vantVeer_2002</td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+</body>
+
+</html>
